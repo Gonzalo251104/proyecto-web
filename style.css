@@ -58,6 +58,10 @@ h3 {
     line-height: 32px;
 }
 
+img {
+    max-width: 100%;
+}
+
 main {
     /* max-width: 1280px;
     margin: 0 auto; */
@@ -70,6 +74,25 @@ nav {
 .nav-container {
     display: flex;
     justify-content: space-between;
+
+    & ul {
+        display: none;
+        position: absolute;
+        background-color: var(--primary-color);
+
+        top: 0;
+        left: 0;
+        height: 100vh;
+        /* display: flex; */
+        flex-direction: column;
+        padding: 20px 0;
+        text-align: center;
+        width: 100%;
+
+        & a {
+            color: var(--white);
+        }
+    }
 }
 
 p {
@@ -89,9 +112,9 @@ summary {
 }
 
 ul {
-    list-style: none;
     display: flex;
-    gap: 30px;
+    list-style: none;
+    gap: 40px;
 
     & li a {
         color: var(--heading-color);
@@ -108,13 +131,14 @@ ul {
     display: block;
     height: fit-content;
     padding: 16px;
-    width: fit-content;
     text-decoration: none;
+    width: fit-content;
 }
 
 .container {
-    max-width: 1280px;
     margin: 0 auto;
+    max-width: 1280px;
+    padding: 0, 15px;
 }
 
 .faqs {
@@ -129,7 +153,7 @@ ul {
 
 .faqs-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 80px;
 }
 
@@ -145,8 +169,9 @@ ul {
 }
 
 .footer-container {
+    align-items: center;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
 
     & .btn-primary {
         justify-self: center;
@@ -169,8 +194,9 @@ ul {
 }
 
 .hero-container {
-    display: flex;
     align-items: center;
+    display: flex;
+    flex-wrap: wrap;
     gap: 30px;
 }
 
@@ -187,7 +213,8 @@ ul {
 
 .projects-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    grid-template-columns: repeat(1, 1fr);
 }
 
 /* Service  Styles */
@@ -204,7 +231,8 @@ ul {
 
 .services-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    grid-template-columns: repeat(1, 1fr);
 }
 
 .service-item {
@@ -247,7 +275,7 @@ ul {
     align-items: center;
     display: grid;
     gap: 40px;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
 }
 
 .strategy-cards-container {
@@ -266,14 +294,6 @@ ul {
     padding: 20px;
     position: relative;
 
-    &:nth-child(2) {
-        left: 50px;
-    }
-
-    &:nth-child(3) {
-        left: 20px;
-    }
-
     & .order {
         background-color: var(--skyblue);
         border-radius: 100%;
@@ -286,7 +306,6 @@ ul {
 }
 
 /* Team Styles */
-
 .team {
     background-color: var(--gray);
     padding: 50px 0 100px;
@@ -294,7 +313,7 @@ ul {
 
 .team-container {
     display: grid;
-    grid-template-columns: 1fr 2fr auto;
+    grid-template-columns: repeat(1, 1fr);
     gap: 20px;
 }
 
@@ -317,22 +336,23 @@ ul {
     display: grid;
     gap: 20px;
     grid-column: 1 / -1;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(1, 1fr);
 }
 
 .team-statistics {
     display: flex;
+    flex-wrap: wrap;
     gap: 100px;
 }
 
 .team-statistics-item {
     align-items: center;
     display: flex;
+    flex: 1;
     flex-direction: column;
-    gap: 10px;
     text-align: center;
 
-    & height {
+    & h3 {
         font-size: 41px;
     }
 
@@ -341,6 +361,10 @@ ul {
         border-radius: 100%;
         padding: 16px;
         width: fit-content;
+    }
+
+    & img {
+        height: 26px;
     }
 }
 
@@ -358,7 +382,7 @@ ul {
 
 .testimonials-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 20px;
 }
 
@@ -373,11 +397,96 @@ ul {
 
 .testimonials-author {
     display: flex;
-    justify-content: flex-start;
     gap: 30px;
+    justify-content: flex-start;
     margin-top: 30px;
 
     & img {
         max-width: 70px;
+    }
+}
+
+/* Estilos para tablet */
+@media (min-width: 768px) {
+    .faqs-container {
+        gap: 30px;
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-container {
+        flex-wrap: nowrap;
+
+        & h1 {
+            font-size: 40px;
+        }
+
+        & p {
+            font-size: 18px;
+        }
+    }
+
+    /* .nav-container {
+        & ul {
+            display: flex;
+        }
+    } */
+
+    .projects-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .strategy-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-statistics-item {
+        gap: 10px;
+    }
+
+    .testimonials-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Estilos para dekstop small */
+@media (min-width: 1024px) {
+    .faqs-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 80px;
+    }
+
+    .services-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .team-container {
+        grid-template-columns: 1fr 2fr auto;
+    }
+
+    .team-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .testimonials-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1280px) {
+    .strategy-card {
+        &:nth-child(2) {
+            left: 50px;
+        }
+
+        &:nth-child(3) {
+            left: 20px;
+        }
     }
 }
